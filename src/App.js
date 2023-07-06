@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
+import AllRoutes from './Source/Router/AllRoutes';
+import Navbar from './Source/Components/Navbar';
+import Ads from './Source/Components/Ads';
+import store from './Source/Redux/Store';
 
 function App() {
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Provider store={store} >
+        <Navbar />
+      <div className='App' style={{height:'100%'}}  >
+        <AllRoutes />
+        <Ads />
+      </div>
+    </Provider>
+      </BrowserRouter>
+    
   );
 }
 

@@ -1,0 +1,24 @@
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const morgan = require('morgan')
+const ConnectDatabase = require('./DB')
+const PasteBinRouter = require('./Router/pastebin.route')
+
+
+app.use(cors())
+app.use(morgan('tiny'))
+app.use(express.json())
+app.get('/', (req, res) => {
+    res.send("ok")
+})
+
+app.use('/pastebin', PasteBinRouter)
+
+ConnectDatabase()
+    .then(() => {
+        app.listen('8080', () => {
+            console.log("Server Started")
+        })
+})
+
