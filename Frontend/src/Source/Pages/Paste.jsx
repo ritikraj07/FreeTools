@@ -21,9 +21,9 @@ function Paste() {
     
     function Post_Content() {
         dispatch(Add_Content({ content: content, password: password }))
+        navigate('/copy')
     }
     
-
     
     
     return (
@@ -42,7 +42,7 @@ function Paste() {
             <p style={{ color: 'red', fontSize: '12px' }} >You can secure you code by adding password</p>
             <input className='input_password' placeholder='PASSWORD' onChange={setPassword} />
             <br></br>
-            {id && <button onClick={() => copyToClipboard(id)} className='button-15'>Click to copy Id of content</button>
+            {id && <button onClick={() => copyToClipboard(id)} className='button-15'>Click To Copy ID</button>
 
             }
             <button onClick={Post_Content} className='button-15'>Submit</button>

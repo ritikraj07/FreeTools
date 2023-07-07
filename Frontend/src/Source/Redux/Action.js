@@ -1,7 +1,7 @@
 let Add_Content = (data) => async (dispatch) => {
     dispatch(postDataRequest());
     try {
-        const response = await fetch('https://pastebin.cyclic.app/pastebin', {
+        const response = await fetch('https://pastebin.cyclic.app/pastebin/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -11,6 +11,7 @@ let Add_Content = (data) => async (dispatch) => {
 
         const responseData = await response.json();
         dispatch(postDataSuccess(responseData));
+       
     } catch (error) {
         dispatch(postDataFailure(error.message));
     }
@@ -35,5 +36,6 @@ const postDataFailure = (error) => {
         payload: error
     };
 };
+
 
 export { Add_Content };
