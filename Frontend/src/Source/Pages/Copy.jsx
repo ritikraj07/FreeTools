@@ -18,6 +18,9 @@ function Copy() {
     let password = useSelector((store) => {
         return store.password
     })
+    // if (password) {
+    //     console.log('password ==>', password)
+    // }
 
     return (
         <div className="CopyPaste">

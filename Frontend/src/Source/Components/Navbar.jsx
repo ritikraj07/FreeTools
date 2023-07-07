@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Styles/Navbar.css'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { ADD_CONTENT } from '../Redux/Constant';
 function Navbar(props) {
     const [id, setid] = useState('')
@@ -22,9 +22,9 @@ function Navbar(props) {
     }
     return (
         <div className='Navbar' >
-            <div>
-                <h1 style={{ fontSize: 22 }} >PASTEBIN</h1>
-                <a href='/paste'>Paste</a>
+            <div style={{display:'flex', alignItems:'center'}} >
+                <h1 style={{ fontSize: 22, marginRight:'20px' }} >PASTEBIN</h1>
+                <NavLink style={{textDecoration:'none', color:'red'}} to='/paste'> Paste New </NavLink>
             </div>
             <div>
                 <input onChange={(e)=>setid(e.target.value)} placeholder='Enter Id Here...' />

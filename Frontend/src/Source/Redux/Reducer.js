@@ -10,7 +10,7 @@ let oldState = {
 }
 
 export default function Reducer(newState = oldState, action) {
-    console.log("====>", action)
+    // console.log("====>", action)
     switch (action.type) {
         case ADD_CONTENT:
             return { ...newState, content: action.payload.content, actualContent: action.payload.actualContent }
