@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const morgan = require('morgan')
 const ConnectDatabase = require('./DB')
-const PasteBinRouter = require('./Router/pastebin.route')
+const PasteBinRouter = require('./Router/pastebin.route.js')
 
 
 app.use(cors())
