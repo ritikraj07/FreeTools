@@ -18,7 +18,7 @@ function Paste() {
     function Post_Content() {
         dispatch(Add_Content({ content: content, password: password }))
         if (id) {
-            navigate(`/copy${id}`)
+            navigate(`/copy/${id}`)
         }
        
     }

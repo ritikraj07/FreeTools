@@ -16,10 +16,16 @@ app.get('/', (req, res) => {
 
 app.use('/pastebin', PasteBinRouter)
 
-ConnectDatabase()
-    .then(() => {
-        app.listen('8000', () => {
-            console.log("Server Started")
-        })
-})
 
+// ConnectDatabase()
+//     .then(() => {
+//         app.listen('8000', () => {
+//             console.log("Server Started")
+//         })
+// })
+
+app.listen('8000', () => {
+    console.log("Server Started")
+    ConnectDatabase()
+})
+        

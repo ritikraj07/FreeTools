@@ -3,7 +3,7 @@ let Add_Content = (data) => async (dispatch) => {
     dispatch(postDataRequest());
     // let navigate = useNavigate()
     try {
-        const response = await fetch('http://localhost:8080/pastebin/', {
+        const response = await fetch('http://localhost:8000/pastebin/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
