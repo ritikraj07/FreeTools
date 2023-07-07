@@ -22,8 +22,9 @@ PasteBinRouter.get('/:id',async (req, res) => {
 PasteBinRouter.post('/', async (req, res) => {
     try {
         let content = req.body
-        console.log('content ===>', content)
         content = await Add_Content(content);
+        let { _id } = content
+        console.log(_id)
         res.send({
             status: true,
             data: content

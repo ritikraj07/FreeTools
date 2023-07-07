@@ -1,4 +1,4 @@
-import { ADD_CONTENT, POST_DATA_FAILURE, POST_DATA_REQUEST, POST_DATA_SUCCESS, TEST } from "./Constant";
+import { ADD_CONTENT, POST_DATA_FAILURE, POST_DATA_REQUEST, POST_DATA_SUCCESS } from "./Constant";
 
 let oldState = {
     content: "",
@@ -9,6 +9,7 @@ let oldState = {
 }
 
 export default function Reducer(newState = oldState, action) {
+    console.log("====>", action)
     switch (action.type) {
         case ADD_CONTENT:
             return { ...newState, content: action.payload }

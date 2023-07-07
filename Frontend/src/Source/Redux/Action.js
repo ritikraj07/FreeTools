@@ -1,6 +1,7 @@
+// import { useNavigate } from "react-router-dom";
 let Add_Content = (data) => async (dispatch) => {
     dispatch(postDataRequest());
-
+    // let navigate = useNavigate()
     try {
         const response = await fetch('http://localhost:8080/pastebin/', {
             method: 'POST',
@@ -11,8 +12,9 @@ let Add_Content = (data) => async (dispatch) => {
         });
 
         const responseData = await response.json();
-
+        let {_id} = responseData
         dispatch(postDataSuccess(responseData));
+        // navigate(`copy/${_id}`)
     } catch (error) {
         dispatch(postDataFailure(error.message));
     }

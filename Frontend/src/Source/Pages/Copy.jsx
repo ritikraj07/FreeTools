@@ -2,22 +2,25 @@ import React from 'react';
 import "react-quill/dist/quill.snow.css";
 import { useSelector } from 'react-redux';
 import '../Styles/Copy.css'
-function Copy({setwindow}) {
+import { useParams } from 'react-router-dom';
+function Copy() {
+    let { id } = useParams()
+    console.log('===>', id)
     let content = useSelector((store) => {
         return store.content;
     })
     let password = useSelector((store) => {
         return store.password
     })
-    let id = useSelector((store) => {
+    id = useSelector((store) => {
         return store.id
     })
+
     
 
     
         const copyToClipboard = (content) => {
-            const textToCopy = content; // Replace with the text you want to copy
-
+            const textToCopy = content;
             navigator.clipboard.writeText(textToCopy)
                 .then(() => {
                     console.log('Text copied to clipboard:', textToCopy);
@@ -35,7 +38,7 @@ function Copy({setwindow}) {
             />
             <button className='button-15' onClick={() => copyToClipboard(content)}>Copy Text</button>
             <button className='button-15' onClick={() => copyToClipboard(id)}>Copy Id</button>
-            <button className='button-15' onClick={() => setwindow(true)}>Paste New</button>
+            <button className='button-15' onClick={() => {}}>Paste New</button>
         </div>
     );
 }
