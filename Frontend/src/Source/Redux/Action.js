@@ -1,7 +1,7 @@
 let Add_Content = (data) => async (dispatch) => {
     dispatch(postDataRequest());
     try {
-        const response = await fetch('http://localhost:8000/pastebin/', {
+        const response = await fetch('https://pastebin.cyclic.app/pastebin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import "../Styles/Paste.css"
 import { Add_Content } from '../Redux/Action';
 import { useNavigate } from 'react-router-dom';
+import copyToClipboard from '../Services/CopyToClipboard';
 function Paste() {
     const [content, setContent] = useState("")
     const [password, setPassword] = useState(null)
@@ -23,16 +24,7 @@ function Paste() {
     }
     
 
-    const copyToClipboard = (content) => {
-        const textToCopy = content;
-        navigator.clipboard.writeText(textToCopy)
-            .then(() => {
-                console.log('Text copied to clipboard:', textToCopy);
-            })
-            .catch((error) => {
-                console.error('Error copying text to clipboard:', error);
-            });
-    };
+    
     
     return (
         <div className='Paste' >
