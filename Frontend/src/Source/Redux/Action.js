@@ -1,4 +1,5 @@
 let Add_Content = (data) => async (dispatch) => {
+        console.log(data)
     dispatch(postDataRequest());
     try {
         const response = await fetch('https://pastebin.cyclic.app/pastebin/', {
@@ -10,7 +11,6 @@ let Add_Content = (data) => async (dispatch) => {
         });
 
         const responseData = await response.json();
-        console.log(responseData)
         dispatch(postDataSuccess(responseData));
        
     } catch (error) {

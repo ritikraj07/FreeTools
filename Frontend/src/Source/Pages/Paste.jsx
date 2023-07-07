@@ -9,7 +9,6 @@ import copyToClipboard from '../Services/CopyToClipboard';
 function Paste() {
     const [content, setContent] = useState("")
     const [password, setPassword] = useState(null)
-    const [actualContent, setActualContent] = useState('')
     const quillRef = useRef(null);
     let id = useSelector((store) => {
         return store.id
@@ -22,17 +21,14 @@ function Paste() {
     };
     
     function Post_Content() {
-        handleGetContent()
-        dispatch(Add_Content({ content: content, password: password, actualContent: actualContent }))
+        let plainText = content;
+        if (quillRef.current) {
+            plainText = quillRef.current.getEditor().getText();
+        }
+        dispatch(Add_Content({ content: content, password: password, actualContent: plainText }))
         navigate('/copy')
     }
    
-    const handleGetContent = () => {
-        if (quillRef.current) {
-            const plainText = quillRef.current.getEditor().getText();
-            setActualContent(plainText)
-        }
-    };
     
     return (
         <div className='Paste' >
