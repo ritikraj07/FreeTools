@@ -5,16 +5,20 @@ let oldState = {
     password: null,
     isError: false,
     isLoading: false,
-    id:null
+    id: null,
+    actualContent: ''
 }
 
 export default function Reducer(newState = oldState, action) {
     console.log("====>", action)
     switch (action.type) {
         case ADD_CONTENT:
-            return { ...newState, content: action.payload.content }
+            return { ...newState, content: action.payload.content, actualContent: action.payload.actualContent }
         case POST_DATA_SUCCESS:
-            return {...newState, content: action.payload.data.content, password: action.payload.data.password, isLoading: false, id: action.payload.data._id}
+            return {
+                ...newState, content: action.payload.data.content, password: action.payload.data.password, isLoading: false, id: action.payload.data._id,
+                actualContent: action.payload.data.actualContent
+            }
         case POST_DATA_FAILURE:
             return {...newState, isError: true, isLoading: false}
         case POST_DATA_REQUEST:

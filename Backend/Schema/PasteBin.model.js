@@ -8,7 +8,8 @@ const PasteBinSchema = new Schema({
     password: {
         type: String,
         default: null
-    }
+    },
+    actualContent:String
 }, {
     timestamps: true
 })

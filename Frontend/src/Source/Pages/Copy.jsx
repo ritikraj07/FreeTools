@@ -2,13 +2,17 @@ import React from 'react';
 import "react-quill/dist/quill.snow.css";
 import { useSelector } from 'react-redux';
 import '../Styles/Copy.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import copyToClipboard from '../Services/CopyToClipboard';
 function Copy() {
     let { id } = useParams()
     let ID = useSelector((store) => {
         return store.id
     })
-    console.log('id===>', id, ID)
+    let navigate = useNavigate()
+    let actualContent = useSelector((store) => {
+        return store.actualContent
+    })
     if (id !== ID) {
         console.log('lasfj asjlf')
     }
@@ -19,33 +23,23 @@ function Copy() {
         return store.password
     })
 
-   
-
-
-
-   
+   console.log("====>>>>>>>>>>", actualContent)
 
     
-        const copyToClipboard = (content) => {
-            const textToCopy = content;
-            navigator.clipboard.writeText(textToCopy)
-                .then(() => {
-                    console.log('Text copied to clipboard:', textToCopy);
-                })
-                .catch((error) => {
-                    console.error('Error copying text to clipboard:', error);
-                });
-        };
+        
 
     return (
         <div className="CopyPaste">
+            {/* <pre> */}
             <div
                 className="output-content"
                 dangerouslySetInnerHTML={{ __html: content }}
-            />
-            <button className='button-15' onClick={() => copyToClipboard(content)}>Copy Text</button>
+                />
+                
+            {/* </pre> */}
+            <button className='button-15' onClick={() => copyToClipboard(actualContent)}>Copy Text</button>
             <button className='button-15' onClick={() => copyToClipboard(id)}>Copy Id</button>
-            <button className='button-15' onClick={() => {}}>Paste New</button>
+            <button className='button-15' onClick={() => {navigate('/paste')}}>Paste New</button>
         </div>
     );
 }

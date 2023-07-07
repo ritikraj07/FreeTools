@@ -10,6 +10,7 @@ let Add_Content = (data) => async (dispatch) => {
         });
 
         const responseData = await response.json();
+        console.log(responseData)
         dispatch(postDataSuccess(responseData));
        
     } catch (error) {

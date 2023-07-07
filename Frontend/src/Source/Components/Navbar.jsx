@@ -7,12 +7,12 @@ function Navbar(props) {
     const [id, setid] = useState('')
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    console.log('id==>', id)
+    
     function Get_Content() {
         fetch(`https://pastebin.cyclic.app/pastebin/${id}`)
             .then((res) => res.json())
             .then((res) => {
-                console.log('===> res =>', res)
+                // console.log('===> res =>', res)
                 dispatch({
                     type: ADD_CONTENT,
                     payload: res.data
@@ -23,8 +23,8 @@ function Navbar(props) {
     return (
         <div className='Navbar' >
             <div>
-            <h1 style={{fontSize:22}} >PASTEBIN</h1>
-
+                <h1 style={{ fontSize: 22 }} >PASTEBIN</h1>
+                <a href='/paste'>Paste</a>
             </div>
             <div>
                 <input onChange={(e)=>setid(e.target.value)} placeholder='Enter Id Here...' />
