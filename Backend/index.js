@@ -9,6 +9,7 @@ const PasteBinRouter = require('./Router/pastebin.route.js')
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send("ok")
 })
@@ -17,7 +18,7 @@ app.use('/pastebin', PasteBinRouter)
 
 ConnectDatabase()
     .then(() => {
-        app.listen('8080', () => {
+        app.listen('8000', () => {
             console.log("Server Started")
         })
 })
