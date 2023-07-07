@@ -5,18 +5,25 @@ import '../Styles/Copy.css'
 import { useParams } from 'react-router-dom';
 function Copy() {
     let { id } = useParams()
-    console.log('===>', id)
+    let ID = useSelector((store) => {
+        return store.id
+    })
+    console.log('id===>', id, ID)
+    if (id !== ID) {
+        console.log('lasfj asjlf')
+    }
     let content = useSelector((store) => {
         return store.content;
     })
     let password = useSelector((store) => {
         return store.password
     })
-    id = useSelector((store) => {
-        return store.id
-    })
 
-    
+   
+
+
+
+   
 
     
         const copyToClipboard = (content) => {

@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Get_Content, Add_Content } = require('../Controller/PasteBin.Controller')
+const { Get_Content, Add_Content } = require('../Controller/PasteBin.Controller.js')
 
 const PasteBinRouter = Router()
 
