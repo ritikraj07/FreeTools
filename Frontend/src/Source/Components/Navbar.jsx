@@ -12,12 +12,19 @@ function Navbar(props) {
         fetch(`https://pastebin.cyclic.app/pastebin/${id}`)
             .then((res) => res.json())
             .then((res) => {
-                // console.log('===> res =>', res)
-                dispatch({
-                    type: ADD_CONTENT,
-                    payload: res.data
-                })
-                navigate('/copy')
+                console.log('===> res =>', res)
+                if (res.status) {
+                    dispatch({
+                        type: ADD_CONTENT,
+                        payload: res.data
+                    })
+                    navigate('/copy')
+                } else {
+                    alert('wrong Id')
+                }
+               
+            }).catch((err) => {
+            console.log(err)
         })
     }
     return (
