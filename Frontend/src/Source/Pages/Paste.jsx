@@ -43,7 +43,7 @@ function Paste() {
                 className="pasteContainer"
                 placeholder="PASTE HERE..."
             />
-            <p style={{ color: 'red', fontSize: '12px' }} >You can secure you code by adding password</p>
+            <p style={{ color: 'red', fontSize: '12px' }} >You can secure your content by adding password</p>
             <input className='input_password' placeholder='PASSWORD' onChange={(e)=> setPassword(e.target.value)} />
             <br></br>
             {id && <>
