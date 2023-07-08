@@ -11,7 +11,11 @@ const PasteBinSchema = new Schema({
     },
     actualContent:String
 }, {
-    timestamps: true
+    timestamps: true,
+    expireAfterSeconds: {
+        type: Number,
+        default: 60
+    }
 })
 
 const PasteBin = model('PasteBin', PasteBinSchema)
