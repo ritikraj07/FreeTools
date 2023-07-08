@@ -20,7 +20,7 @@ function Navbar(props) {
                     })
                     navigate('/copy')
                 } else {
-                    alert('wrong Id')
+                    alert('wrong Id or may be Id expire')
                 }
                
             }).catch((err) => {

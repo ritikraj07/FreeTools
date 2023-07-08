@@ -1,7 +1,6 @@
-.Copy{
+.CopyPaste{
  padding: 10px;
   border: 1px solid #ddd;
-  background-color:rgb(23,2,23);
   color: white;
   word-spacing: 1px;
   width: 100%;
@@ -15,10 +14,34 @@
   word-spacing: 1px;
   max-width: 80vw;
   height: fit-content;
-
 }
 
+.passwordDiv{
+  padding: 50px;
+  background-color: rgb(211, 40, 40);
+}
 
+ .passwordDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .passwordDiv p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .passwordDiv input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 250px;
+      }
+
+      .passwordDiv input::placeholder {
+        color: #999;
+      }
 
 .button-15 {
   background-image: linear-gradient(#42A1EC, #0070C9);

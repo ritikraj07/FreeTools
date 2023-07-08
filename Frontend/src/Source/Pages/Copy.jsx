@@ -23,7 +23,7 @@ function Copy() {
 
     return (
         <div className="CopyPaste">
-            {ps != password ? <div>
+            {ps != password ? <div className='passwordDiv' >
                 <p>This content is secure by password</p>
                 <input placeholder='Please enter password Here...' onChange={(e)=>setps(e.target.value)} />
             </div> :
