@@ -13,7 +13,8 @@ const PasteBinSchema = new Schema({
 }, {
     timestamps: true,
 })
-PasteBinSchema.index({ createdAt: 1 }, { expireAfterSeconds: 60 });
+PasteBinSchema.index({ createdAt: 1 }, { expireAfterSeconds: 600 });
+
 
 const PasteBin = model('PasteBin', PasteBinSchema)
 module.exports = PasteBin
