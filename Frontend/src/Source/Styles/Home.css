@@ -1,7 +1,11 @@
-.container {  
-  min-height: 300px;
-  min-width: 75%;
-  padding: 1%;
-  /* border: 1px solid red; */
+.container {
+  position: relative;
+  height: 50vh;
 }
 
+.container div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -18,6 +18,7 @@ function Paste() {
     let dispatch = useDispatch();
     const handleContentChange = (value) => {
         setContent(value)
+        id = null
     };
     
     function Post_Content() {
@@ -31,7 +32,7 @@ function Paste() {
     
     return (
         <div className='Paste' >
-            <h4 style={{ color: 'blue' }} >New Paste</h4>
+            <h4 style={{ color: 'blue', textAlign:'left' }} >New Paste</h4>
             <p style={{color:'red', fontSize:10}} >Note: It will automatically delete after 10 minute of pasting</p>
             <ReactQuill
                 ref={quillRef}
@@ -46,13 +47,13 @@ function Paste() {
             />
             <p style={{ color: 'red', fontSize: '12px' }} >You can secure your content by adding password</p>
             <input className='input_password' placeholder='PASSWORD' onChange={(e)=> setPassword(e.target.value)} />
-            <br></br>
+            <div style={{display:'flex'}}>
+            <button onClick={Post_Content} className='button-15'>Submit</button>
             {id && <>
                 <button onClick={() => copyToClipboard(id)} className='button-15'>Click To Copy ID</button>
                 </>
             }
-            <button onClick={Post_Content} className='button-15'>Submit</button>
-
+            </div>
         </div>
     );
 }
