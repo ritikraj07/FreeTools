@@ -20,19 +20,12 @@ return (
     <div className='Navbar' >
 
         <div>
+            <NavLink to='/' style={{textDecoration:'none'}}>
+                <h1 className='logo' >FreeTools</h1>
+            </NavLink>
             <div>
-                <h1 className='logo' >PASTEBIN</h1>
-            </div>
-            <div>
-                <NavLink className="Navlink" style={currentPath === '/' ? activeStyle : {}} to="/">
-                    Home
-                </NavLink>
-                <NavLink className="Navlink" style={currentPath === '/paste' ? activeStyle : {}} to="/paste">
-                    Paste
-                </NavLink>
-                <NavLink className="Navlink" style={currentPath === '/tools' ? activeStyle : {}} to="/tools">
-                    Tools
-                </NavLink>
+               
+             
             </div>
 
         </div>

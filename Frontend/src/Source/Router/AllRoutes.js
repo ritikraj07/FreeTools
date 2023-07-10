@@ -10,11 +10,9 @@ export default function AllRoutes(){
         <Routes>
             <Route path='/' Component={Home} />
             <Route path='/paste' Component={Paste} />
-            <Route path='/copy' Component={Copy} />
             <Route path='/copy/:id' Component={Copy} />
             <Route path='/pdfconverter' Component={ImageToPdfConverter} />
-
-
+            <Route path='/home' Component={Home} />
             <Route path='/*' Component={NotFound} />
         </Routes>
     )

@@ -1,23 +1,32 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+
 import '../Styles/Home.css'
-
-import { useDispatch, useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 
 function Home() {
-  let dispatch = useDispatch()
+  const [tools, setTools] = useState([
+    { name: 'Image To PDF Conveter', description: 'It will help in converting image to pdf', path: '/pdfconverter' },
+    { name: 'Paste To Send', description: 'It will help in converting large data into a link which is shareable', path: '/paste' }
+  ])
   
 
   return (
     <div className="container">
 
       <div>
-        <h1>Under Construction...</h1>
-        </div>
-      
-      
+        {tools?.map((tool) => {
+          return (
+            <div className="home_link">
+              <Link to={tool.path}  >
+                
+              <h3>{tool.name}</h3>
+              <p>{tool.description}</p>
+
+              </Link>
+              </div>
+            )
+          })}
+      </div>
     </div>
   );
 

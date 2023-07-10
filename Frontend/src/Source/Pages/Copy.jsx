@@ -35,7 +35,7 @@ function Copy() {
         } else {
             Get_Content(id)
         }
-        // console.log('ok', id, Store_id, ps, password)
+        
     }, [])
     useEffect(() => {
         setnotic('')
@@ -48,7 +48,7 @@ function Copy() {
         fetch(`https://pastebin.cyclic.app/pastebin/${id}`)
             .then((res) => res.json())
             .then((res) => {
-                // console.log('===> res =>', res)
+                
                 if (res.status) {
                     dispatch({
                         type: ADD_CONTENT,
@@ -60,7 +60,7 @@ function Copy() {
                 }
 
             }).catch((err) => {
-                // console.log(err)
+                
                 setnotic(err)
             })
         
