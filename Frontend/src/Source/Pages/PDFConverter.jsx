@@ -31,15 +31,15 @@ function ImageToPdfConverter() {
                 const imageBytes = new Uint8Array(reader.result);
                 const pdfDoc = await PDFDocument.create();
                 let image;
-                if (fileType == 'jpg' || fileType == 'jpeg') {
+
+                if (fileType === 'jpg' || fileType === 'jpeg') {
                     image = await pdfDoc.embedJpg(imageBytes);
-                } else if(fileType=='png'){
+                } else if (fileType === 'png') {
                     image = await pdfDoc.embedPng(imageBytes);
-                }
-                else if (fileType==="pdf") {
-                    image = await pdfDoc.embedPdf(imageBytes)
-                } else if (fileType === "page") {
-                    image = await pdfDoc.embedPage(imageBytes)
+                } else if (fileType === 'pdf') {
+                    image = await pdfDoc.embedPdf(imageBytes);
+                } else if (fileType === 'page') {
+                    image = await pdfDoc.embedPage(imageBytes);
                 } else {
                     setMessage('Please select an image file');
                     setTimeout(() => {
@@ -51,14 +51,25 @@ function ImageToPdfConverter() {
 
                 const page = pdfDoc.addPage();
                 const { width, height } = page.getSize();
-                let iHeigth = image.height, iwidth = image.width
-                let h = Math.min(height, iHeigth)
-                let w = Math.min(width, iwidth)
+                const aspectRatio = image.width / image.height;
+                let imageWidth, imageHeight;
+
+                if (width / height > aspectRatio) {
+                    imageWidth = height * aspectRatio;
+                    imageHeight = height;
+                } else {
+                    imageWidth = width;
+                    imageHeight = width / aspectRatio;
+                }
+
+                const x = (width - imageWidth) / 2;
+                const y = (height - imageHeight) / 2;
+
                 page.drawImage(image, {
-                    x: 10,
-                    y: 10,
-                    width: w - 20,
-                    height: h - 20,
+                    x,
+                    y,
+                    width: imageWidth,
+                    height: imageHeight,
                 });
 
                 const pdfBytes = await pdfDoc.save();
@@ -68,6 +79,7 @@ function ImageToPdfConverter() {
             };
 
             reader.readAsArrayBuffer(selectedFile);
+
         } catch (error) {
             // console.error('Error converting image to PDF:', error);
             setMessage('Error converting image to PDF:');
