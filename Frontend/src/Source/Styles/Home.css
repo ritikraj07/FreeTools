@@ -60,8 +60,7 @@
 }
 
 .home_link:hover p {
-  /* height: auto; Display the full description on hover */
-  white-space: normal; /* Allow wrapping to multiple lines */
+  white-space: normal;
 }
 
 .home_link:hover {
