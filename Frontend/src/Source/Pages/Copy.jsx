@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "react-quill/dist/quill.snow.css";
 import { useDispatch, useSelector } from 'react-redux';
 import '../Styles/Copy.css'
@@ -8,12 +8,9 @@ import Notify from '../Components/Notify';
 import { ADD_CONTENT } from '../Redux/Constant';
 function Copy() {
     const [ps, setps] = useState(null)
-    const [ID, setID] = useState('')
     const [notic, setnotic] = useState('')
-    const [state, setstate] = useState(true)
-    let id = useSelector((store) => {
-        return store.id
-    })
+    const [state, setstate] = useState(false)
+
     let navigate = useNavigate()
     let actualContent = useSelector((store) => {
         return store.actualContent
@@ -24,47 +21,60 @@ function Copy() {
     let password = useSelector((store) => {
         return store.password
     })
-  let dispatch = useDispatch() 
+    let Store_id = useSelector((store) => {
+        return store.id
+    })
+
+    let dispatch = useDispatch() 
+
+    let { id } = useParams()
+    useEffect(() => {
+        if (id===Store_id) {
+            setps(password)
+            setstate(true)
+        } else {
+            Get_Content(id)
+        }
+        // console.log('ok', id, Store_id, ps, password)
+    }, [])
+    useEffect(() => {
+        setnotic('')
+    },[ps])
+   
     
-    function Get_Content() {
-        fetch(`https://pastebin.cyclic.app/pastebin/${ID}`)
+   
+    
+    function Get_Content(id) {
+        fetch(`https://pastebin.cyclic.app/pastebin/${id}`)
             .then((res) => res.json())
             .then((res) => {
-                console.log('===> res =>', res)
+                // console.log('===> res =>', res)
                 if (res.status) {
                     dispatch({
                         type: ADD_CONTENT,
                         payload: res.data
                     })
-                    setstate(false)
+                    setstate(true)
                 } else {
                     setnotic('wrong Id or may be Id expire')
                 }
 
             }).catch((err) => {
-                console.log(err)
+                // console.log(err)
                 setnotic(err)
             })
-        setnotic("")
+        
     }
-    
 
     return (
         <div className="CopyPaste">
             {notic.length>0 && Notify(notic) }
-           {state && <div className='idDiv' >
-                <p>Please Enter ID </p>
-                <input placeholder='Enter ID' onChange={(e)=>setID(e.target.value)} />
-                <button onClick={Get_Content} >Search</button>
-            </div>}
 
-            {!state && password !== null && ps != password && <div className='passwordDiv' >
+            
+            {state && password !== ps ? <div className='passwordDiv' >
                 <p>This content is secure by password</p>
                 <input placeholder='Please enter password Here...' onChange={(e) => setps(e.target.value)} />
-            </div>}
-
-            {!state && (password === null || ps == password) && 
-                <div>
+            </div>:<div>
                     <div
                         className="output-content"
                         dangerouslySetInnerHTML={{ __html: content }}
@@ -72,7 +82,6 @@ function Copy() {
                     <div style={{display:'flex'}}>
                         
                     <button className='button-15' onClick={() => copyToClipboard(actualContent)}>Copy Text</button>
-                    <button className='button-15' onClick={() => copyToClipboard(id)}>Copy Id</button>
                         <button className='button-15' onClick={() => { navigate('/paste') }}>Paste New</button>
                         </div>
                     </div>

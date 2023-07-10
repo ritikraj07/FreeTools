@@ -13,7 +13,7 @@ export default function Reducer(newState = oldState, action) {
     // console.log("====>", action)
     switch (action.type) {
         case ADD_CONTENT:
-            return { ...newState, content: action.payload.content, actualContent: action.payload.actualContent }
+            return { ...newState, content: action.payload.content, actualContent: action.payload.actualContent, password: action.payload.password }
         case POST_DATA_SUCCESS:
             return {
                 ...newState, content: action.payload.data.content, password: action.payload.data.password, isLoading: false, id: action.payload.data._id,

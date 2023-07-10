@@ -30,9 +30,6 @@ return (
                 <NavLink className="Navlink" style={currentPath === '/paste' ? activeStyle : {}} to="/paste">
                     Paste
                 </NavLink>
-                <NavLink className="Navlink" style={currentPath === '/copy' ? activeStyle : {}} to="/copy">
-                    Copy
-                </NavLink>
                 <NavLink className="Navlink" style={currentPath === '/tools' ? activeStyle : {}} to="/tools">
                     Tools
                 </NavLink>
