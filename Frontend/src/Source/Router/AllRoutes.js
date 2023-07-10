@@ -3,6 +3,7 @@ import Home from '../Pages/Home.jsx'
 import Paste from '../Pages/Paste.jsx'
 import Copy from '../Pages/Copy.jsx'
 import NotFound from '../Components/NotFound.jsx'
+import ImageToPdfConverter from '../Pages/PDFConverter.jsx'
 
 export default function AllRoutes(){
     return (
@@ -11,6 +12,7 @@ export default function AllRoutes(){
             <Route path='/paste' Component={Paste} />
             <Route path='/copy' Component={Copy} />
             <Route path='/copy/:id' Component={Copy} />
+            <Route path='/pdfconverter' Component={ImageToPdfConverter} />
 
 
             <Route path='/*' Component={NotFound} />
