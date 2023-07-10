@@ -43,13 +43,13 @@
 .home_link p {
   font-size: 14px;
   color: #666;
-  height:auto;
+  height:40px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .home_link:hover p {
-  height: auto; /* Display the full description on hover */
+  /* height: auto; Display the full description on hover */
   white-space: normal; /* Allow wrapping to multiple lines */
 }
