@@ -32,7 +32,7 @@ function Paste() {
     
     return (
         <div className='Paste' >
-            <h4 style={{ color: 'blue', textAlign:'left' }} >New Paste</h4>
+            <h4 style={{ color: '#1f2937', textAlign:'left' }} >New Paste</h4>
             <p style={{color:'red', fontSize:10}} >Note: It will automatically delete after <b> 24 Hours </b> of pasting</p>
             <ReactQuill
                 ref={quillRef}
@@ -46,12 +46,12 @@ function Paste() {
                 
             />
             <p style={{ color: 'red', fontSize: '12px' }} >You can secure your content by adding password</p>
-            <input className='input_password' placeholder='PASSWORD' onChange={(e)=> setPassword(e.target.value)} />
+            <input type='password' className='input_password' placeholder='PASSWORD' onChange={(e)=> setPassword(e.target.value)} />
             <div style={{display:'flex'}}>
-            <button onClick={Post_Content} className='button-15'>Submit</button>
+                <button onClick={Post_Content} className='pasteBtm'>Submit</button>&nbsp;&nbsp;&nbsp;
             {id && <>
                 
-                    <button className='button-15' onClick={() => copyToClipboard('https://free-tools-digital-india.vercel.app/copy/'+id)} >Copy Link</button>
+                    <button className='pasteBtm' onClick={() => copyToClipboard('https://free-tools-digital-india.vercel.app/copy/'+id)} >Copy Link</button>
                 </>
             }
             </div>

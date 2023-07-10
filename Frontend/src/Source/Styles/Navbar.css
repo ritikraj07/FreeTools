@@ -12,16 +12,6 @@
  .Navbar>div{
     width: 50%;
 }
-/*
-.Navbar>div:nth-child(2){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid;
-}
-.Navbar>div:nth-child(2) input{
-    outline: none;
-} */
 
 
 .logo{

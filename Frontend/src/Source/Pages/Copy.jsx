@@ -73,16 +73,16 @@ function Copy() {
             
             {state && password !== ps ? <div className='passwordDiv' >
                 <p>This content is secure by password</p>
-                <input placeholder='Please enter password Here...' onChange={(e) => setps(e.target.value)} />
+                <input type='password' placeholder='Please enter password Here...' onChange={(e) => setps(e.target.value)} />
             </div>:<div>
                     <div
                         className="output-content"
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
-                    <div style={{display:'flex'}}>
+                    <div style={{display:'flex', margin:'5%'}}>
                         
-                    <button className='button-15' onClick={() => copyToClipboard(actualContent)}>Copy Text</button>
-                        <button className='button-15' onClick={() => { navigate('/paste') }}>Paste New</button>
+                    <button className='copyBtm' onClick={() => copyToClipboard(actualContent)}>Copy Text</button> &nbsp; &nbsp;
+                        <button className='copyBtm' onClick={() => { navigate('/paste') }}>Paste New</button>
                         </div>
                     </div>
             }
