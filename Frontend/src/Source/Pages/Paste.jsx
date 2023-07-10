@@ -51,7 +51,7 @@ function Paste() {
             <button onClick={Post_Content} className='button-15'>Submit</button>
             {id && <>
                 
-                    <button className='button-15' onClick={() => copyToClipboard('https://paste-bin-qwert.vercel.app/copy/'+id)} >Copy Link</button>
+                    <button className='button-15' onClick={() => copyToClipboard('https://free-tools-digital-india.vercel.app/copy/'+id)} >Copy Link</button>
                 </>
             }
             </div>
