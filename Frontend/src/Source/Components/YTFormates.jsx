@@ -13,6 +13,9 @@ function YTFormates({ formates, videoDetails }) {
 
     let hour = Math.floor(Duration / 60 / 60)
 
+    console.log(formates)
+    
+
     return (
         <div className='ytformates' >
             <div className='posterClass' >
@@ -38,13 +41,12 @@ function YTFormates({ formates, videoDetails }) {
                                 </td>
                             </tr>
                         </table>
-                        {/* <p>Duration: {`${hour} hr ${min} min ${sec} sec`}</p>
-                        <p>Views: {videoDetails.viewCount}</p> */}
+                      
                     </div>
                 </div>
             </div>
             <table>
-                <tr>
+                <tr key={2323}>
                     <td>
                         QualityLabel
                     </td>
@@ -67,7 +69,7 @@ function YTFormates({ formates, videoDetails }) {
                         Download
                     </td>
                 </tr>
-                {formates.map((formate, i) => {
+                {formates?.map((formate, i) => {
                     return (
                         <tr key={i} style={{border:'1px solid black'}} >
                             <th><p>{formate.qualityLabel}</p></th>
