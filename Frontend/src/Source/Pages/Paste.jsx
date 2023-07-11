@@ -13,6 +13,9 @@ function Paste() {
     let id = useSelector((store) => {
         return store.id
     })
+    let isLoading = useSelector((store) => {
+        return store.isLoading;
+    })
     
     let navigate = useNavigate()
     let dispatch = useDispatch();
@@ -51,7 +54,7 @@ function Paste() {
                 <button onClick={Post_Content} className='pasteBtm'>Submit</button>&nbsp;&nbsp;&nbsp;
             {id && <>
                 
-                    <button className='pasteBtm' onClick={() => copyToClipboard('https://free-tools-digital-india.vercel.app/copy/'+id)} >Copy Link</button>
+                    <button disabled={isLoading} className='pasteBtm' onClick={() => copyToClipboard('https://free-tools-digital-india.vercel.app/copy/'+id)} >{ isLoading?"Posting":"Copy Link"}</button>
                 </>
             }
             </div>
