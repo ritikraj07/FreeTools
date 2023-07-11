@@ -36,7 +36,7 @@ function Paste() {
     return (
         <div className='Paste' >
             <h4 style={{ color: '#1f2937', textAlign:'left' }} >New Paste</h4>
-            <p style={{color:'red', fontSize:10}} >Note: It will automatically delete after <b> 24 Hours </b> of pasting</p>
+            <p style={{color:'red', fontSize:10}} >Note: It will automatically delete after <b> 10 Mins </b> of pasting</p>
             <ReactQuill
                 ref={quillRef}
                 value={content}

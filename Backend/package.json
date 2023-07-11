@@ -8,7 +8,8 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "ytdl-core": "^4.11.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0"
