@@ -10,7 +10,7 @@ const PasteBinSchema = new Schema({
         default: null
     },
     actualContent: String,
-    createdAt: { type:Date, expires: 30, default:new Date() }
+    createdAt: { type: Date, expires: 30, default: Date.now },
 })
 // PasteBinSchema.index({ createdAt: 1 }, { expireAfterSeconds: 86400 });
 
