@@ -13,7 +13,23 @@ function YTFormates({ formates, videoDetails }) {
 
     let hour = Math.floor(Duration / 60 / 60)
 
-    console.log(formates)
+    // function Download(i) {
+    //     console.log(i)
+    //     let format = formates[i]
+    //     let quality = 'highest'
+    //     let filename = title
+    //     if (format?.hasAudio && format?.hasVideo && (format?.quality == "medium" || format?.quality == "hd720")) {
+    //         quality = "highest"
+    //     } else if (!format.hasAudio && format.hasVideo) {
+    //         quality = 'highestvideo'
+    //     }
+
+    //     fetch(`http://localhost:8000/yt/download?url=https://youtu.be/7ahDnxnXheU&quality=${quality}`)
+    //         .then((res) => res.json())
+    //         .then((res) => console.log(res))
+    //         .catch((err) => console.log(err))
+
+    // }
     
 
     return (
@@ -47,12 +63,7 @@ function YTFormates({ formates, videoDetails }) {
             </div>
             <table>
                 <tr key={2323}>
-                    <td>
-                        QualityLabel
-                    </td>
-                    <td>
-                        AudioQuality
-                    </td>
+                   
                     <td>
                         Container
                     </td>
@@ -72,8 +83,7 @@ function YTFormates({ formates, videoDetails }) {
                 {formates?.map((formate, i) => {
                     return (
                         <tr key={i} style={{border:'1px solid black'}} >
-                            <th><p>{formate.qualityLabel}</p></th>
-                            <th><p>{formate.audioQuality}</p></th>
+                           
                             <th><p>{formate.container}</p></th>
                             <th><p>{formate.hasVideo?"Yes":"No"}</p></th>
                             <th><p>{formate.hasAudio ? "Yes" : "No"}</p></th>
