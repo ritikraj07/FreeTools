@@ -9,12 +9,11 @@ const PasteBinSchema = new Schema({
         type: String,
         default: null
     },
-    actualContent: String,
-    createdAt: { type: Date, expires: 86400, default: Date.now },
+    actualContent: String
 }, {
     timestamps: true,
 })
-PasteBinSchema.index({ createdAt: 1 }, { expireAfterSeconds: 86400 });
+// PasteBinSchema.index({ createdAt: 1 }, { expireAfterSeconds: 86400 });
 
 
 const PasteBin = model('PasteBin', PasteBinSchema)
